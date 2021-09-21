@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProductsContainer = styled.div`
   /* width: 100vw; */
   min-height: 100vh;
-  padding: 5rem calc((100vw - 1300px) / 2);
+  padding: 3rem calc((100vw - 1300px) / 2);
   background: #150f0f;
   color: #fff;
   transition: 0.2s ease-in-out;
@@ -52,6 +52,14 @@ export const ProductInfo = styled.div`
 export const ProductDesc = styled.p`
   margin-bottom: 1rem;
 `;
+
+export const PriceWrapper=styled.div`
+display: flex;
+flex-direction:row;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+`
 
 export const ProductPrice = styled.p`
   margin-bottom: 1rem;

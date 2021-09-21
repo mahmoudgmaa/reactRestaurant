@@ -1,19 +1,36 @@
-import { HashRouter as Router, Switch, Redirect } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+} from "react-router-dom";
+import Cart from "./pages/Cart";
 import Feature from "./components/Feature";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Products from "./components/products";
-import { productData, productDataTwo } from "./components/products/data";
 import { GlobalStyle } from "./globalStyles";
+import { Provider } from "react-redux";
+import {store} from "./store"
+
 function App() {
   return (
     <Router>
+      <Provider store={store}>
       <GlobalStyle />
-      <Hero/>
-      <Products heading="Eastern Pizza" data={productData}/>
-      <Feature/>
-      <Products heading="Sweet Treats for you" data={productDataTwo} />
-      <Footer/>
+      <Switch>
+        <Route path="/" exact>
+          <Hero />
+          <Products heading="pizza" />
+          <Products heading="eastern pizza" />
+          <Feature />
+          <Products heading="hot drinks" />
+        </Route>
+        <Route path="/cart" component={Cart} exact />
+        <Redirect to="/" exact />
+      </Switch>
+      <Footer />
+      </Provider>
     </Router>
   );
 }

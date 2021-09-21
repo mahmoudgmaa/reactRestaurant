@@ -8,4 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
     
   }
+  html{
+  background: #150f0f;
+  }
 `;

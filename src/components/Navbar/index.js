@@ -1,17 +1,17 @@
 import React from "react";
-import { Nav, NavLink, NavIcon, Bars } from "./NavElments";
+import { Nav, NavLink, NavIcon, Bars, Cart, NavIconLeft } from "./NavElments";
+import { useHistory } from "react-router-dom";
 
-const Navbar = ({toggle}) => {
+const Navbar = ({ toggle }) => {
+  const history = useHistory();
   return (
-    <div>
-      <Nav>
-        <NavLink to="/">Andalus</NavLink>
-        <NavIcon onClick={toggle}>
-          <p>Menu</p>
-          <Bars />
-        </NavIcon>
-      </Nav>
-    </div>
+    <Nav>
+      <NavLink to="/">Andalus</NavLink>
+      <NavIcon>
+        <Cart onClick={()=>history.push("/cart")}/>
+        <Bars onClick={toggle} />
+      </NavIcon>
+    </Nav>
   );
 };
 
